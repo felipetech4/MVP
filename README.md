@@ -1,6 +1,6 @@
 Equipe:
 	- Felipe de Azevedo Braga - Matrícula: 
-	-						  - Matrícula: 
+	- Thiago				  - Matrícula: 
 	-						  - Matrícula: 
  
 Situação-Problema:
