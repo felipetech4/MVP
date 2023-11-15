@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Protótipo da agenda do MVP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Agende sua consulta</h1>
+    <div class="wraper">
+        <div class="dias-semana">
+            <span>Segunda</span>
+            <span>Terça</span>
+            <span>Quarta</span>
+            <span>Quinta</span>
+            <span>Sexta</span>
+            <span>Sábado</span>
+            <span>Domingo</span>
+        </div>
+
+        <div class="numero-dias">
+            <span class="mes-anterior">30</span>
+            <span class="mes-anterior">31</span>
+        </div>
+
+    </div>
+    <script>
+        let el =  document.querySelector('.numero-dias');
+        for(i = 1; i<=30; i++){
+            el.innerHTML+='<span>'+i+'</span>';
+        }
+    </script>
+</body>

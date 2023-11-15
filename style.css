@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #cccccc;
+}
+
+h1{
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    color: #006B64;
+}
+
+.wraper{
+    max-width: 750px;
+    margin: 10px auto;
+    /* background-color: #006B64; */
+    background-color: white;
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 8px;
+}
+
+.dias-semana{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-bottom: 1px solid #006B64;
+}
+
+.numero-dias{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.numero-dias span{
+    display: inline-block;
+    width: 14.2%;
+    margin: 8px 0;
+    padding-left: 2px;
+}
+
+.dias-semana span{
+    display: inline-block;
+    width: 14.2%;
+    font-weight: bold;
+    color: #006B64;
+}
+
+.mes-anterior{
+    opacity: 0.5;
+}
