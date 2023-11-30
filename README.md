@@ -2,7 +2,7 @@ Não faça nenhuma alteração antes de verificar se no canto inferior esquerdo 
 Caso não esteja, basta clicar no nome atual, e mudar para o seu nome.Equipe:
 	- Felipe de Azevedo Braga - Matrícula: 01023496
 	- Gabriel Almeida Barrio Nuevo - Matrícula: 06007687
-	-						  - Matrícula: 
+	- Thiago Samuel Martins Vieira - Matrícula: 06007696
  
 Situação-Problema:
 	- #1 - AgendaFácil NAF.
