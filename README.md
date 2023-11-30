@@ -16,6 +16,7 @@ Requisitos Funcionais e Não Funcionais do nosso MVP:
 Documentação do nosso Código-fonte:
 
 Esse é o repositório do nosso projeto NAF (Núcleo de Apoio Contábil e Fiscal), um sistema para agendamento de serviços contábeis e fiscais, cadastro de usuários, feedback e login. Este documento fornece uma visão geral do projeto, estrutura do código-fonte e instruções para execução.
+OBS: O projeto está desenvolvido sem nenhuma interação com backend, todos os valores encontrados no conteúdo são fictícios.
 
 1.Introdução
 2.Estrutura do Projeto
