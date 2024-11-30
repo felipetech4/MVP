@@ -1,36 +1,34 @@
-# MVP Front-End: AgendaFácil NAF
+#Situação-Problema: AgendaFácil NAF.
 
-## Equipe
-- **Felipe de Azevedo Braga** - Matrícula: 01023496  
-- **Gabriel Almeida Barrio Nuevo** - Matrícula: 06007687  
-- **Thiago Samuel Martins Vieira** - Matrícula: 06007696
+Equipe:
+	- Felipe de Azevedo Braga - Matrícula: 01023496
+	- Gabriel Almeida Barrio Nuevo - Matrícula: 06007687
+	- Thiago Samuel Martins Vieira - Matrícula: 06007696
+ 
+Requisitos Funcionais e Não Funcionais do nosso MVP:
+	- Agendamento de Atendimento: Os usuários devem agendar atendimentos facilmente por meio do WebSite;
+	- Gestão de Disponibilidade: O sistema deve rastrear a disponibilidade de horário para agendamento;
+	- Feedback e Avaliação: Os usuários devem fornecer feedback sobre a qualidade do atendimento;
+	- Segurança de Dados: Os dados devem estar em conformidade com as regulamentações de privacidade;
+	- Desempenho Rápido: WebSite deve ser responsivo e de carregamento rápido para garantir uma experiência de usuário eficiente;
+	- Interface Intuitiva e de fácil navegação: Permitindo que os usuários agendem serviços sem dificuldades.
+	
+Documentação do nosso Código-fonte:
 
----
+Esse é o repositório do nosso projeto NAF (Núcleo de Apoio Contábil e Fiscal), um sistema para agendamento de serviços contábeis e fiscais, cadastro de usuários, feedback e login. Este documento fornece uma visão geral do projeto, estrutura do código-fonte e instruções para execução.
+OBS: O projeto está desenvolvido sem nenhuma interação com backend, todos os valores encontrados no conteúdo são fictícios.
 
-## Descrição do Projeto
-Este é o repositório do front-end do projeto **MVP AgendaFácil NAF** (Núcleo de Apoio Contábil e Fiscal). O sistema foi desenvolvido para facilitar o agendamento de serviços contábeis e fiscais, oferecendo as seguintes funcionalidades:
+1.Introdução
+2.Estrutura do Projeto
+3.Instruções de Uso
+4.Gif Demonstrativo
 
-- Cadastro de usuários.
-- Login.
-- Agendamento de serviços.
-- Feedback sobre os atendimentos.
+1.Introdução
 
-**Nota:** Este projeto é desenvolvido sem interação com o back-end, e todos os dados utilizados são fictícios.
+O NAF é um sistema desenvolvido para facilitar o agendamento de serviços oferecidos por um Núcleo de Apoio Contábil e Fiscal. O projeto inclui funcionalidades para agendamento de horários, cadastro de usuários, feedback sobre os serviços prestados e autenticação de login.
 
----
-
-## Requisitos Funcionais e Não Funcionais
-- **Agendamento de Atendimento:** Permitir que os usuários agendem serviços facilmente.
-- **Gestão de Disponibilidade:** Rastrear e gerenciar horários disponíveis.
-- **Feedback e Avaliação:** Possibilitar que os usuários forneçam feedback sobre os serviços prestados.
-- **Segurança de Dados:** Garantir conformidade com regulamentações de privacidade.
-- **Desempenho Rápido:** As páginas devem ser responsivas e de carregamento rápido.
-- **Interface Intuitiva:** Navegação simples e funcional.
-
----
-
-## Estrutura do Projeto
-O projeto está organizado da seguinte forma:
+2.Estrutura do Projeto
+O projeto está estruturado da seguinte forma:
 
 - **HTML:** Arquivos na raiz do projeto que representam a estrutura de cada funcionalidade (cadastro, login, agendamento, feedback).
 - **CSS:** Diretório contendo o arquivo `style.css`, responsável pela formatação das páginas.

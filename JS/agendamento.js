@@ -1,73 +1,83 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const dateSelect = document.getElementById('date');
-    const timeSelect = document.getElementById('time');
     const apontamentoForm = document.getElementById('apontamentoForm');
+    const dateInput = document.getElementById('date');
+    const timeInput = document.getElementById('time');
 
-    dateSelect.addEventListener('focus', function () {
-        const availableDates = generateAvailableDates();
-        updateAvailableDates(availableDates);
-    });
+    // Função para preencher os campos de data e hora com os horários disponíveis
+    function loadAvailableDatesAndTimes() {
+        // Primeiro, obtém os horários disponíveis do servidor
+        fetch('http://localhost:3000/api/schedules/available')
+            .then(response => response.json())
+            .then(availableTimes => {
+                // Preencher as opções de data
+                const availableDates = [...new Set(availableTimes.map(time => time.day))]; // Pega os dias únicos
+                availableDates.forEach(day => {
+                    const option = document.createElement('option');
+                    option.value = day;
+                    option.textContent = `Dia ${day} (Seg-Sex)`;
+                    dateInput.appendChild(option);
+                });
 
-    dateSelect.addEventListener('change', function () {
-        const selectedDate = dateSelect.value;
-        const availableTimes = generateAvailableTimes(selectedDate);
-        updateAvailableTimes(availableTimes);
-    });
+                // Preencher os horários para o primeiro dia (se não houver agendamentos anteriores)
+                if (availableTimes.length > 0) {
+                    loadAvailableTimes(availableTimes);
+                }
+            })
+            .catch(error => {
+                alert('Erro ao carregar horários disponíveis: ' + error.message);
+            });
+    }
 
-    timeSelect.addEventListener('change', function () {
-        const selectedTime = timeSelect.value;
-        console.log('Horário selecionado:', selectedTime);
+    // Função para preencher os horários baseados na data selecionada
+    function loadAvailableTimes(availableTimes) {
+        const selectedDate = dateInput.value;
+
+        // Filtra os horários disponíveis para o dia selecionado
+        const filteredTimes = availableTimes.filter(time => time.day === parseInt(selectedDate));
+        timeInput.innerHTML = ''; // Limpa as opções de horário
+
+        // Preenche as opções de horário
+        filteredTimes.forEach(time => {
+            const option = document.createElement('option');
+            option.value = time.hour;
+            option.textContent = time.hour;
+            timeInput.appendChild(option);
+        });
+    }
+
+    // Carrega as datas e horários disponíveis ao carregar a página
+    loadAvailableDatesAndTimes();
+
+    // Quando a data é alterada, recarrega os horários disponíveis
+    dateInput.addEventListener('change', function () {
+        loadAvailableTimes(availableTimes);
     });
 
     apontamentoForm.addEventListener('submit', function (event) {
         event.preventDefault();
-        handleApontamento(apontamentoForm);
-    });
 
-    const initialAvailableDates = generateAvailableDates();
-    updateAvailableDates(initialAvailableDates);
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const date = dateInput.value;
+        const time = timeInput.value;
+
+        fetch('http://localhost:3000/api/schedules/create', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, date, time })
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.text().then(text => { throw new Error(text); });
+            }
+            return response.text();
+        })
+        .then(data => {
+            alert(data); // Exibe mensagem de sucesso
+            window.location.href = 'feedback.html'; // Redireciona para a página de feedback
+        })
+        .catch(error => {
+            alert(`Erro no agendamento: ${error.message}`);
+        });
+    });
 });
-
-function generateAvailableDates() {
-    return ['2023-12-01', '2023-12-05', '2023-12-10', '2023-12-15'];
-}
-
-function updateAvailableDates(dates) {
-    const dateSelect = document.getElementById('date');
-
-    dateSelect.innerHTML = '';
-
-    dates.forEach(date => {
-        const option = document.createElement('option');
-        option.value = date;
-        option.text = date;
-        dateSelect.add(option);
-    });
-
-    const selectedDate = dateSelect.value;
-    const availableTimes = generateAvailableTimes(selectedDate);
-    updateAvailableTimes(availableTimes);
-}
-
-function generateAvailableTimes(selectedDate) {
-    return ['09:00', '10:00', '14:00', '15:00', '16:00'];
-}
-
-function updateAvailableTimes(times) {
-    const timeSelect = document.getElementById('time');
-
-    timeSelect.innerHTML = '';
-
-    times.forEach(time => {
-        const option = document.createElement('option');
-        option.value = time;
-        option.text = time;
-        timeSelect.add(option);
-    });
-}
-
-function handleApontamento(form) {
-    window.alert('Agendamento concluído com sucesso!');
-    form.reset();
-    window.location.href = "feedback.html";
-}
