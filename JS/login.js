@@ -1,29 +1,33 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const loginForm = document.getElementById('loginForm');
+    const formularioLogin = document.getElementById('formularioLogin');
 
-    loginForm.addEventListener('submit', function (event) {
-        event.preventDefault();
+    formularioLogin.addEventListener('submit', function (evento) {
+        evento.preventDefault(); // Evita o comportamento padrão do envio do formulário
 
-        const email = document.getElementById('loginEmail').value;  // Alterado para 'loginEmail'
-        const password = document.getElementById('loginSenha').value;  // Alterado para 'loginSenha'
+        // Usando os IDs corretos do HTML
+        const email = document.getElementById('loginEmail').value;
+        const senha = document.getElementById('loginSenha').value;
 
-        fetch('http://localhost:3000/api/users/login', {
+        // Faz a requisição POST para a API de login
+        fetch('http://localhost:3000/api/usuarios/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password })
+            body: JSON.stringify({ email, senha }),
         })
-        .then(response => {
-            if (!response.ok) {
-                return response.text().then(text => { throw new Error(text); });
-            }
-            return response.text();
-        })
-        .then(data => {
-            alert(data); // Exibe mensagem de boas-vindas
-            window.location.href = 'agendamento.html'; // Redireciona para a página de agendamento
-        })
-        .catch(error => {
-            alert(`Erro no login: ${error.message}`);
-        });
+            .then((resposta) => {
+                if (!resposta.ok) {
+                    return resposta.text().then((texto) => {
+                        throw new Error(texto);
+                    });
+                }
+                return resposta.text(); // Retorna a mensagem da API
+            })
+            .then((dados) => {
+                alert(dados); // Exibe mensagem de boas-vindas
+                window.location.href = 'agendamento.html'; // Redireciona para a página de agendamento
+            })
+            .catch((erro) => {
+                alert(`Erro no login: ${erro.message}`); // Exibe erros
+            });
     });
 });

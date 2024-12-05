@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
 <body>
     <div class="feedback-container">
         <h2>Horário agendado com sucesso!</h2>
-        <form id="feedback-form">
+        <form id="formularioFeedback">
             <label for="avaliacao"><strong>Avaliação:</strong></label>
             <select id="avaliacao" name="avaliacao">
                 <option value="5">5 estrelas</option>
@@ -19,11 +19,9 @@
                 <option value="2">2 estrelas</option>
                 <option value="1">1 estrela</option>
             </select>
-
             <label for="comentario">Comentário:</label>
             <textarea id="comentario" name="comentario" rows="4" cols="50"></textarea>
-
-            <button type="button" onclick="submitFeedback()">Enviar Feedback</button>
+            <button type="button" onclick="enviarFeedback()">Enviar Feedback</button>
         </form>
     </div>
     <script src="../JS/feedback.js"></script>
